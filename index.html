@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080d1b">
+<title>WiFiPulse — WiFi Speed Test</title>
+<style>
+:root{color-scheme:dark;--bg:#080d1b;--panel:#111a2e;--panel2:#0c1426;--line:#24324c;--text:#edf4ff;--muted:#91a2bf;--cyan:#52e0d0;--blue:#7895ff;--purple:#b29aff;--amber:#f4c76b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#1b3260 0%,transparent 52%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}.wrap{max-width:980px;margin:auto;padding:20px 14px 26px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:28px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:18px}.logo{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:#081323;font-size:21px}.badge{font-size:11px;border:1px solid #2c5c63;background:#102b35;color:var(--cyan);border-radius:99px;padding:7px 10px}.hero{text-align:center;margin-bottom:24px}.eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);font-weight:800}.hero h1{font-size:clamp(30px,7vw,48px);letter-spacing:-1.5px;margin:8px 0}.hero p{font-size:13px;color:var(--muted);line-height:1.6;margin:0}.layout{display:grid;grid-template-columns:1fr 1fr;gap:15px}.panel{background:linear-gradient(155deg,#121d33,#0d1527);border:1px solid var(--line);border-radius:22px;padding:19px;box-shadow:0 16px 50px #0002}.tester{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:355px}.ring{width:205px;height:205px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--cyan) 0deg,#25334c 0deg);position:relative;box-shadow:0 0 55px #52e0d011}.ring:before{content:"";position:absolute;inset:9px;border-radius:50%;background:linear-gradient(145deg,#101b30,#0a1120);border:1px solid #263550}.inner{position:relative;z-index:1;text-align:center}.speed{font-size:45px;line-height:1.05;font-weight:850;letter-spacing:-2px;font-variant-numeric:tabular-nums}.unit{font-size:12px;color:var(--muted);margin-top:5px}.phase{font-size:11px;color:var(--cyan);margin-top:13px;text-transform:uppercase;letter-spacing:1px;font-weight:800}.btn{margin-top:21px;border:0;border-radius:13px;padding:14px 22px;min-width:175px;background:linear-gradient(100deg,var(--cyan),#8ce9ff);color:#071522;font-weight:850;font-size:14px;cursor:pointer}.btn:disabled{opacity:.6}.hint{font-size:11px;color:var(--muted);text-align:center;line-height:1.6;max-width:310px;margin:13px 0 0}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px}.section-head h2{font-size:16px;margin:0}.tiny{font-size:10px;color:var(--muted)}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{border:1px solid #202e47;background:var(--panel2);border-radius:15px;padding:14px;min-height:104px}.label{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:7px}.dot{width:8px;height:8px;border-radius:50%;background:var(--cyan)}.metric:nth-child(2) .dot{background:var(--blue)}.metric:nth-child(3) .dot{background:var(--purple)}.metric:nth-child(4) .dot{background:var(--amber)}.value{font-size:26px;font-weight:850;margin-top:13px;letter-spacing:-.6px;font-variant-numeric:tabular-nums}.value small{font-size:11px;color:var(--muted);letter-spacing:0}.details{margin-top:12px;padding:12px 13px;background:#0b1324;border:1px solid #202e47;border-radius:14px}.row{display:flex;justify-content:space-between;gap:10px;padding:6px 0;font-size:11px}.row span:first-child{color:var(--muted)}.row span:last-child{text-align:right;overflow-wrap:anywhere}.bottom{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px}.info h3{font-size:14px;margin:0 0 8px}.info p{font-size:11px;color:var(--muted);line-height:1.75;margin:0}.info strong{color:var(--text)}.notice{margin-top:13px;border:1px solid #4b3c25;background:#241d12;color:#efd7a2;border-radius:13px;padding:11px 12px;font-size:11px;line-height:1.6}.footer{text-align:center;color:#7485a3;font-size:11px;margin-top:24px;padding-top:18px;border-top:1px solid #1c2940}.credit{display:inline-block;margin-top:7px;color:var(--cyan)}@media(max-width:680px){.layout,.bottom{grid-template-columns:1fr}.wrap{padding:16px 12px 22px}.top{margin-bottom:25px}.badge{font-size:10px}.tester{min-height:330px}.panel{padding:16px}.ring{width:195px;height:195px}.speed{font-size:42px}.metric{padding:12px;min-height:100px}.value{font-size:25px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><div class="logo">⌁</div><span>WiFi<span style="color:var(--cyan)">Pulse</span></span></div><div class="badge">● Browser speed test</div></header>
+<section class="hero"><div class="eyebrow">Your connection, clearly measured</div><h1>WiFi Speed Test</h1><p>Download, upload, ping and jitter — right from your Android browser.</p></section>
+<main class="layout">
+<section class="panel tester">
+<div class="ring" id="ring"><div class="inner"><div class="speed" id="live">—</div><div class="unit">Mbps</div><div class="phase" id="phase">Ready to test</div></div></div>
+<button class="btn" id="start">Start Speed Test ↗</button>
+<p class="hint" id="hint">For best results, pause downloads and stay close to your Wi-Fi router.</p>
+</section>
+<section class="panel">
+<div class="section-head"><h2>Test results</h2><span class="tiny" id="status">Not tested yet</span></div>
+<div class="metrics">
+<div class="metric"><div class="label"><i class="dot"></i>Download</div><div class="value" id="download">— <small>Mbps</small></div></div>
+<div class="metric"><div class="label"><i class="dot"></i>Upload</div><div class="value" id="upload">— <small>Mbps</small></div></div>
+<div class="metric"><div class="label"><i class="dot"></i>Ping</div><div class="value" id="ping">— <small>ms</small></div></div>
+<div class="metric"><div class="label"><i class="dot"></i>Jitter</div><div class="value" id="jitter">— <small>ms</small></div></div>
+</div>
+<div class="details"><div class="row"><span>Browser connection info</span><span id="connection">Checking…</span></div><div class="row"><span>Test endpoint</span><span>Cloudflare</span></div><div class="row"><span>Last test</span><span id="last">—</span></div></div>
+<div class="notice" id="notice">This test needs internet access to contact the speed-test server. Opening the HTML file itself does not require hosting.</div>
+</section>
+</main>
+<section class="bottom">
+<div class="panel info"><h3>💡 Reading your results</h3><p><strong>Download:</strong> how quickly data arrives. <strong>Upload:</strong> how quickly data is sent. <strong>Ping:</strong> response delay; lower is usually better. <strong>Jitter:</strong> variation in ping; lower is steadier.</p></div>
+<div class="panel info"><h3>🔐 Privacy</h3><p>This page does not ask for a Wi-Fi password or store results in an account. Test traffic is sent to Cloudflare. Results can vary with signal strength, your provider, device and network load.</p></div>
+</section>
+<footer class="footer">A clean connection-checking experience.<br><span class="credit">Developer: <strong>Mehedi Hasan Mahin</strong></span></footer>
+</div>
+<script>
+const $=id=>document.getElementById(id);let busy=false;
+function metric(id,n,u){$(id).innerHTML=(Number.isFinite(n)?n.toFixed(n<10?2:1):'—')+' <small>'+u+'</small>'}
+function progress(p){$('ring').style.background=`conic-gradient(var(--cyan) ${Math.max(0,Math.min(1,p))*360}deg,#25334c 0deg)`}
+function conn(){const c=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(!c)return 'Not exposed by browser';return (c.type||c.effectiveType||'Network detected')+(c.downlink?' · '+c.downlink+' Mbps est.':'')}
+$('connection').textContent=conn();
+function fetchTimeout(url,options={},ms=20000){const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),ms);return fetch(url,{...options,signal:controller.signal}).finally(()=>clearTimeout(timer))}
+async function pingTest(){
+ const arr=[];
+ for(let i=0;i<5;i++){const t=performance.now();try{const r=await fetchTimeout('https://speed.cloudflare.com/__down?bytes=0&cb='+Date.now()+'_'+i,{cache:'no-store',mode:'cors'},10000);if(!r.ok)throw Error('HTTP '+r.status);await r.arrayBuffer();arr.push(performance.now()-t)}catch(e){throw Error('Ping test could not reach Cloudflare. Open this file in Chrome with internet access, then try again. ('+(e.name==='AbortError'?'Request timed out':e.message)+')')}}
+ const avg=arr.reduce((a,b)=>a+b,0)/arr.length;let j=0;for(let i=1;i<arr.length;i++)j+=Math.abs(arr[i]-arr[i-1]);return{ping:avg,jitter:j/(arr.length-1)}
+}
+async function downloadTest(){
+ let best=0;const sizes=[500000,2000000,8000000];
+ for(let i=0;i<sizes.length;i++){ $('phase').textContent='Testing download';const t=performance.now();let r;try{r=await fetchTimeout('https://speed.cloudflare.com/__down?bytes='+sizes[i]+'&cb='+Math.random(),{cache:'no-store',mode:'cors'},25000)}catch(e){throw Error('Download test failed. Check internet access or browser restrictions. '+(e.name==='AbortError'?'Request timed out':''))}if(!r.ok)throw Error('Download endpoint returned HTTP '+r.status);const b=await r.arrayBuffer();const sec=(performance.now()-t)/1000;if(!b.byteLength||sec<=0)throw Error('No test data received.');best=b.byteLength*8/sec/1e6;$('live').textContent=best.toFixed(1);progress(.15+.35*(i+1)/sizes.length);if(sec>6)break}return best
+}
+async function uploadTest(){
+ let best=0;const sizes=[100000,500000,1500000];
+ for(let i=0;i<sizes.length;i++){ $('phase').textContent='Testing upload';const bytes=new Uint8Array(sizes[i]);for(let j=0;j<bytes.length;j++)bytes[j]=(j*31+17)&255;const t=performance.now();let r;try{r=await fetchTimeout('https://speed.cloudflare.com/__up?cb='+Math.random(),{method:'POST',body:bytes,cache:'no-store',mode:'cors'},25000)}catch(e){throw Error('Upload test failed. Your browser or network may block the upload request. '+(e.name==='AbortError'?'Request timed out':''))}if(!r.ok)throw Error('Upload endpoint returned HTTP '+r.status);await r.arrayBuffer();const sec=(performance.now()-t)/1000;best=bytes.byteLength*8/sec/1e6;$('live').textContent=best.toFixed(1);progress(.55+.4*(i+1)/sizes.length);if(sec>6)break}return best
+}
+$('start').addEventListener('click',async()=>{
+ if(busy)return;busy=true;$('start').disabled=true;$('start').textContent='Testing…';$('status').textContent='In progress';$('notice').textContent='Testing connection. Keep this page open until it finishes.';$('live').textContent='…';progress(0);
+ try{ $('phase').textContent='Measuring ping';const p=await pingTest();metric('ping',p.ping,'ms');metric('jitter',p.jitter,'ms');progress(.12);const d=await downloadTest();metric('download',d,'Mbps');const u=await uploadTest();metric('upload',u,'Mbps');progress(1);$('live').textContent=d.toFixed(1);$('phase').textContent='Test complete';$('status').textContent='Completed';$('last').textContent=new Date().toLocaleString();$('hint').textContent='Done! Run again later if you want to compare results.';$('notice').textContent='Test completed. Measurements are estimates and can vary between runs.'}
+ catch(e){$('phase').textContent='Test failed';$('status').textContent='Failed';$('notice').textContent=e.message||'Could not complete the test. Check your connection and try again.';$('hint').textContent='If it keeps failing, your browser or network may block the test endpoint.';$('live').textContent='—';progress(0)}
+ finally{busy=false;$('start').disabled=false;$('start').textContent='Run Test Again ↻'}
+});
+</script>
+</body>
+</html>
